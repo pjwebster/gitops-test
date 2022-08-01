@@ -23,7 +23,7 @@ spec:
         memory: 1Gi
     sharding: {}
   dex:
-    openshiftOAuth: true
+    openShiftOAuth: true
     resources:
       limits:
         cpu: 500m
@@ -42,8 +42,8 @@ spec:
       requests:
         cpu: 250m
         memory: 128Mi
-      route:
-        eabled: false
+    route:
+      enabled: false
   ha:
     enabled: false
     resources:
@@ -64,7 +64,7 @@ spec:
     policy: g, system:cluster-admins, role:admin
     scopes: '[groups]'
   redis:
-    resource:
+    resources:
       limits:
         cpu: 500m
         memory: 256Mi
@@ -106,7 +106,7 @@ spec:
         enabled: false
     ingress:
       enabled: false
-    insecure: false
+    insecure: true
     resources:
       limits:
         cpu: 500m
