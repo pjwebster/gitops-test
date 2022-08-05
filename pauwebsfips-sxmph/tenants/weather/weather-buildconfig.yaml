@@ -1,0 +1,25 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: weather
+  namespace: weather
+spec:
+  runPolicy: Serial
+  triggers:
+  - type: ConfigChange
+  source:
+    git:
+      ref: master
+      uri: https://github.com/pjwebster/weather.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Containerfile
+      imageOptimizationPolicy: SkipLayers
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: weather:latest
+  postCommit: {}
+  successfulBuildsHistoryLimit: 5

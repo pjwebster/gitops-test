@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: weather
+  name: weather
+  namespace: weather
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: weather
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/weather/weather:latest
+        name: weather
+        resources: {}
+status: {}
